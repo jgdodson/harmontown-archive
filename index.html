@@ -16,12 +16,56 @@
       You need to enable JavaScript to run this app.
     </noscript>
 
-    <div id="root"></div>
-
-    <!--
-  You can add webfonts, meta tags, or analytics to this file.
-  The build step will place the bundled scripts into the <body> tag.
--->
+    <div id="root">
+      Welcome to the Harmontown Archive! This goal of this site is to preserve the metadata for episodes of the podcast, including file hashes and links to torrent downloads.
+    </div>
+    
+    <script>
+    
+      let episodeInfo = [
+        {
+          episodeNumber: 1,
+          episodeTitle: 'To the moon',
+          publishDate: '2016-03-04',
+          audioSize: 312312,
+          audioMD5: '2ttwttwywe',
+          audioMagnetLink: '',
+          videoSize: 12312312,
+          videoMD5: 'asdfasdfasdf',
+          videoMagnetLink: '',
+          mainCast: ['Dan Harmon, Jeff Davis'],
+          guests: ['Robin Williams']
+        }
+      ];
+      
+      for (let i=0; i<episodeInfo.length; i++) {
+        
+        const nextElem = document.createElement('DIV');
+        
+        nextElem.className = 'episodeWrapper';
+        nextElem.innerHTML = `
+          <p>Title: ${episodeInfo[i].episodeTitle}</p>
+          <p>Publish Date: ${episodeInfo[i].publishDate}</p>
+          <p>Video Size: ${episodeInfo[i].videoSize}</p>
+          <p>Video MD5: ${episodeInfo[i].videoMD5}</p>
+          <p>Publish Date: ${episodeInfo[i].publishDate}</p>
+          <p>Main Cast: ${episodeInfo[i].mainCast}</p>
+          <p>Guests: ${episodeInfo[i].guests}</p>
+        `;
+        
+        document.getElementById('root').appendChild(nextElem);
+      }
+      
+    </script>
+    
+    <style>
+      .episodeWrapper {
+        color: red;
+        margin: 20px;
+        border-bottom: 1px solid gray;
+      }
+    </style>
+    
   </body>
 </html>
 
